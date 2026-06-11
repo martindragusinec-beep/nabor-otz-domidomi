@@ -579,7 +579,7 @@
             <div class="h-full progressbar" style="transform: scaleX(0.08); transform-origin: 0 50%"></div>
           </div>
           <h3 class="mt-5 h-tight text-[22px] md:text-[26px] font-extrabold text-slate2-900">Máš na to u nás pracovat?<br/><span class="text-brand">Ověř si to.</span></h3>
-          <p class="mt-1.5 text-slate2-600 text-[13.5px]">O jaký podíl trhu máš zájem?</p>
+          <p class="mt-1.5 text-slate2-600 text-[13.5px]">Ve kterém regionu chceš působit?</p>
           <div id="hero-quiz-options" class="mt-4 grid gap-2"></div>
           <div class="mt-4 text-[11px] text-slate2-500 flex items-center justify-between">
             <span>Potrvá to 60 sekund.</span>
@@ -2096,14 +2096,14 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
   // ------ form logic ------
-  const regions = ['Praha + Střední Čechy','Jižní Čechy + Plzeňsko','Morava (Brno/Olomouc)','Ostravsko + Slezsko','Vysočina + Pardubicko','Ústecko + Liberecko'];
+  const regions = ['Praha + Střední Čechy','Jižní Čechy + Vysočina + Plzeňsko','Severní Čechy','Východní Čechy','Jižní Morava + Zlínsko','Olomoucko + Ostravsko'];
   const experience = ['0 – méně než rok','1 – 2 roky','3 – 5 let','5+ let'];
 
   function mountForm(host, variant) {
     const state = { step: 0, region: null, exp: null, license: null, name: '', phone: '', email: '' };
     const total = 4;
     const render = () => {
-      const stepTitles = ['O jaký podíl trhu máš zájem?','Máš zkušenosti s obchodem?','Máš řidičák?','Kam ti máme volat?'];
+      const stepTitles = ['Ve kterém regionu chceš působit?','Máš zkušenosti s obchodem?','Máš řidičák?','Kam ti máme volat?'];
       const pct = ((state.step) / total) * 100;
       host.innerHTML = `
         <div class="flex items-center gap-2 pr-12">
@@ -2253,14 +2253,14 @@
 
 // Proper mountForm (replaces stub) ----------------
 (() => {
-  const regions = ['Praha + Střední Čechy','Jižní Čechy + Plzeňsko','Morava (Brno/Olomouc)','Ostravsko + Slezsko','Vysočina + Pardubicko','Ústecko + Liberecko'];
+  const regions = ['Praha + Střední Čechy','Jižní Čechy + Vysočina + Plzeňsko','Severní Čechy','Východní Čechy','Jižní Morava + Zlínsko','Olomoucko + Ostravsko'];
   const experience = ['0 – méně než rok','1 – 2 roky','3 – 5 let','5+ let'];
   const licenses = ['Ano, aktivně řídím','Ano, ale zřídka','Zatím nemám'];
 
   window.__mountFormV2 = function(host, initial) {
     const state = Object.assign({ step: 0, region: null, exp: null, license: null, name: '', phone: '', email: '' }, initial || {});
     const total = 4;
-    const stepTitles = ['O jaký podíl trhu máš zájem?','Máš zkušenosti s obchodem?','Máš řidičák?','Kam ti máme volat?'];
+    const stepTitles = ['Ve kterém regionu chceš působit?','Máš zkušenosti s obchodem?','Máš řidičák?','Kam ti máme volat?'];
 
     function render() {
       const pct = (state.step / total) * 100;
@@ -2395,7 +2395,7 @@
   // Hero step-1 options — click advances to step 2 with selected region
   const heroHost = document.getElementById('hero-quiz-options');
   if (heroHost) {
-    const regions = ['Praha + Střední Čechy','Jižní Čechy + Plzeňsko','Morava (Brno/Olomouc)','Ostravsko + Slezsko','Vysočina + Pardubicko','Ústecko + Liberecko'];
+    const regions = ['Praha + Střední Čechy','Jižní Čechy + Vysočina + Plzeňsko','Severní Čechy','Východní Čechy','Jižní Morava + Zlínsko','Olomoucko + Ostravsko'];
     heroHost.innerHTML = regions.map(r => `
       <button data-hero-opt data-val="${r}" class="radio-row text-left">
         <span class="circle"></span>
